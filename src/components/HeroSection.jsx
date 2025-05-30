@@ -130,7 +130,7 @@ const HeroSection = () => {
               From epic builds to tiny treasures, they'll get exactly what they love—when they want it.
               No stress, no guesswork, no expiration date. Just pure, build-it-your-way joy.
             </p>
-            <button className="bg-blue-600 mt-4 text-white px-6 sm:px-12 py-2 sm:py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors">
+            <button className="bg-blue-600 mt-4 text-white px-12 sm:px-12 py-2 sm:py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors">
               Make Their Day
             </button>
           </div>

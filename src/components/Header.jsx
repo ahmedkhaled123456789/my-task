@@ -56,23 +56,24 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
         <a href="#" className="opacity-60 font-medium hover:opacity-100">Contact Us</a>
       </nav>
 
-      {/* Mobile Menu Button */}
-      <div className="lg:hidden flex items-center">
-        <button
-          className="text-black focus:outline-none"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? (
-            <svg className="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
-              <path d="M6 18L18 6M6 6l12 12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          ) : (
-            <svg className="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
-              <path d="M4 6h16M4 12h16M4 18h16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          )}
-        </button>
-      </div>
+     {/* Mobile Menu Button */}
+<div className="lg:hidden flex items-center">
+  <button
+    className="text-black focus:outline-none"
+    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+  >
+    {isMobileMenuOpen ? (
+      <svg className="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
+        <path d="M6 18L18 6M6 6l12 12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ) : (
+      <svg className="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
+        <path d="M4 6h16M4 12h16M4 18h16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    )}
+  </button>
+</div>
+
 
       {/* Right Side Controls */}
       <div className="hidden lg:flex items-center space-x-3">
@@ -121,16 +122,32 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     </div>
 
     {/* Mobile Navigation */}
-    {isMobileMenuOpen && (
-      <div className="lg:hidden mt-4 bg-white rounded shadow-lg p-4 space-y-3 z-10">
-        <a href="#" className="block text-sm font-medium" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
-        <a href="#" className="block text-sm font-medium" onClick={() => setIsMobileMenuOpen(false)}>About</a>
-        <a href="#" className="block text-sm font-medium" onClick={() => setIsMobileMenuOpen(false)}>Categories</a>
-        <a href="#" className="block text-sm font-medium" onClick={() => setIsMobileMenuOpen(false)}>Product</a>
-        <a href="#" className="block text-sm font-medium" onClick={() => setIsMobileMenuOpen(false)}>Location</a>
-        <a href="#" className="block text-sm font-medium" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</a>
-      </div>
-    )}
+<div
+  className={`header_active fixed top-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-2xl w-64 h-full flex flex-col items-center justify-center space-y-6 transform transition-transform duration-300 ease-in-out lg:hidden ${
+    isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+  }`}
+>
+  {/* Close Button inside drawer */}
+  <button
+    onClick={() => setIsMobileMenuOpen(false)}
+    className="absolute top-4 left-4 text-gray-600  text-2xl font-bold"
+  >
+    &times;
+  </button>
+
+  {['Home', 'About', 'Categories', 'Product', 'Location', 'Contact Us'].map((label) => (
+    <a
+      key={label}
+      href="#"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="text-base font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-200"
+    >
+      {label}
+    </a>
+  ))}
+</div>
+
+
   </div>
 </header>
 
